@@ -11,3 +11,15 @@ while x < 1000
 end
 
 puts nums.inject{|sum, x| sum + x}
+
+=begin
+
+Other solutions on the web & IRC:
+
+y = 0
+(1..999).each { |x| y = y + x if (x % 3 == 0) || (x % 5 == 0) }
+puts y
+
+1.upto(999).select { |n| [3, 5].any? { |div| n % div == 0 } }.inject :+
+
+=end
