@@ -6,12 +6,15 @@ evens = []
 x = 0
 
 while series[-1] <= 4000000
-series << (series[-1] + series[-2])
+  series << (series[-1] + series[-2])
 end
+
 series.pop
-series.each{|a| 
+
+series.each do |a| 
   if a % 2 == 0 
-  evens << a
+    evens << a
   end
-}
+end
+
 puts evens.inject{|sum, x| sum + x}
