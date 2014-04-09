@@ -11,7 +11,7 @@ end
 
 series.pop
 
-series.each do |a| 
+series.each do |a|  #block can be replaced by evens << series.select{|a| a.even?}; or evens << series.select(&:even?)
   if a % 2 == 0 
     evens << a
   end
