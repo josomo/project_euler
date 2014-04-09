@@ -22,4 +22,5 @@ puts y
 
 1.upto(999).select { |n| [3, 5].any? { |div| n % div == 0 } }.inject :+
 
+(1..999).select{|x| (x % 3 == 0) || (x % 5 == 0) }.reduce(:+)
 =end
