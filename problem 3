@@ -1,2 +1,21 @@
 #What is the largest prime factor of the number 600851475143?
 
+all_factors = []
+x=2
+num = 600851475143
+require 'prime'
+
+while (x <= (num)/2) #creates an array with all factors of num
+  if (num % x == 0)
+    all_factors << x
+  end 
+  x+=1
+end
+
+all_factors.delete_if do |p| 
+  Prime.prime?(p) == false
+end
+
+puts all_factors
+
+#this way is much quicker and concise Prime.prime_division(num).max.first
