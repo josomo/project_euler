@@ -16,6 +16,6 @@ all_factors.delete_if do |p|
   Prime.prime?(p) == false
 end
 
-puts all_factors
+puts all_factors[-1]
 
 #this way is much quicker and concise Prime.prime_division(num).max.first
