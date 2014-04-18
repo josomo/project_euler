@@ -8,7 +8,7 @@ c = 0
 d = 0
 
 (a..b).each do |x| 
-   (a..b).each do |y| 
+   (x..b).each do |y| 
       c = x * y 
       if (c > d) && (c.to_s.reverse == c.to_s)
             d = c
