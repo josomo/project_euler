@@ -1,19 +1,19 @@
 #A palindromic number reads the same both ways. The largest palindrome made from 
 #the product of two 2-digit numbers is 9009 = 91 × 99.
 #Find the largest palindrome made from the product of two 3-digit numbers.
- 
+
 a = 100
 b = 999
 c = 0 
-array = []
- 
+d = 0
+
 (a..b).each do |x| 
    (a..b).each do |y| 
       c = x * y 
-      if c.to_s.reverse == c.to_s
-         array << c
+      if (c > d) && (c.to_s.reverse == c.to_s)
+            d = c
       end 
    end 
 end
- 
-puts array.sort[-1]
+
+puts d
