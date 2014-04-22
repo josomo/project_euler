@@ -1,0 +1,21 @@
+#There exists exactly one Pythagorean triplet for which a + b + c = 1000.
+#Find the product abc.
+
+x=0
+y=0
+z=0
+
+(1..1000).each do |a| 
+   (a..1000).each do |b| 
+      (b..1000).each do |c| 
+         if (a + b + c == 1000) && (a**2 + b**2 == c**2)
+            x = a 
+            y = b 
+            z = c 
+            break
+         end 
+      end 
+   end 
+end
+
+puts (x * y * z)
