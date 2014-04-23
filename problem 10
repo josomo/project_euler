@@ -1,0 +1,11 @@
+#Find the sum of all the primes below two million.
+
+y = 0 
+
+require "prime"
+
+Prime.each(2000000) do |x| 
+   y = y + x 
+end
+
+puts y
