@@ -1,0 +1,18 @@
+x = 1 
+y = 0 
+a = []
+
+while true
+   a = []
+   y += x
+   (1..y).each do |n| 
+      if (y % n) == 0
+         a << n
+      end 
+   end 
+   if a.count >= 500 
+      puts y
+      break
+   end 
+   x += 1   
+end
