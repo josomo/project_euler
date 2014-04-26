@@ -1,0 +1,26 @@
+c = 0
+d = 0
+
+(1..1000000).each do |n|
+   a = [n]
+   while true
+      if a.last.odd?
+         a << (3*(a.last)+1)
+         if a.last == 1
+            break
+         end
+      elsif a.last.even?
+         a << ((a.last)/2)
+         if a.last == 1
+            break
+         end
+      end
+   end
+
+   if a.count > c
+      c = a.count
+      d = n
+   end
+end
+
+puts d
