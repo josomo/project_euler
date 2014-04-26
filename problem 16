@@ -1,0 +1,11 @@
+x = 2**1000
+y = 0 
+a = [] 
+
+a = x.to_s.chars
+
+a.each do |n| 
+   y = y + n.to_i
+end
+
+puts y
