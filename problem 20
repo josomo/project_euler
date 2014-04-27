@@ -1,0 +1,15 @@
+n = 100 
+y = 1 
+z = 0 
+
+(1..n).each do |x| 
+   y = y * x 
+end
+
+a = y.to_s.chars.map(&:to_i)
+
+a.each do |y| 
+   z = y + z 
+end
+
+puts z
