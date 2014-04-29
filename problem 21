@@ -1,0 +1,39 @@
+#Let d(n) be defined as the sum of proper divisors of n (numbers less than n which divide evenly into n).
+#If d(a) = b and d(b) = a, where a ≠ b, then a and b are an amicable pair and each of a and b are called amicable numbers.
+
+#For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 and 110; therefore d(220) = 284. 
+#The proper divisors of 284 are 1, 2, 4, 71 and 142; so d(284) = 220.
+
+#Evaluate the sum of all the amicable numbers under 10000.
+
+a = []
+t = 0
+x = 10000
+hash = Hash.new
+crash = Hash.new
+
+(1..x).each do |y| #iterates through 10,000 and creates a hash with values equal to the sum of the factors of the key
+   a = []
+   z = 0
+   (1..(y/2)).each do |h|
+      if y % h == 0
+         a << h
+      end
+   end
+   hash[y] = a.inject(:+)
+end
+
+
+hash.each do |k, v| #iterates through the hash, and creates a new hash with only amicable pairs
+   hash.each do |o, p|
+      if (o == v) && (p == k) && (k != v)
+         crash[k] = v
+      end
+   end
+end
+
+crash.each_key do |k| 
+   t = k + t
+end
+
+puts t
