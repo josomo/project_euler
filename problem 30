@@ -1,0 +1,21 @@
+x = 0 
+d = 0 
+
+while x < 1000000 #or while true
+  x += 1
+  c = 0 
+  y = []
+
+  x.to_s.chars.map(&:to_i).each do |z| 
+    if x.to_s.chars.length > 1 
+      c = z**5 + c 
+    end 
+  end 
+
+  if x == c
+    d = d + x 
+  end 
+
+end
+
+puts d
