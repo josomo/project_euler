@@ -1,0 +1,10 @@
+#The series, 1^1 + 2^2 + 3^3 + ... + 10^10 = 10405071317.
+
+#Find the last ten digits of the series, 1^1 + 2^2 + 3^3 + ... + 1000^1000.
+
+
+y = 0
+
+(1..1000).each { |x| y = x**x + y }
+
+y.to_s.chars[-10..-1].each {|a| print a.to_i}
