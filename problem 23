@@ -21,12 +21,17 @@ c = []
   end
 end
 
-(1..28123).each do |x|        # 4 loops == bad
+z = []
+b.each do |x|
   b.each do |y|
-    unless b.include?(x - y) || c.include?(x)
-      c << x
-    end
+    z << x + y
   end
 end
 
-puts c.inject(:+)
+g = []
+(1..28123).each { |r| g << r }
+
+s = []
+s = g - z
+
+puts s.inject(:+)
