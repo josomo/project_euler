@@ -21,7 +21,7 @@ c = []
   end
 end
 
-(1..28123).each do |x|
+(1..28123).each do |x|        # 4 loops == bad
   b.each do |y|
     unless b.include?(x - y) || c.include?(x)
       c << x
