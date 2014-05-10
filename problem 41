@@ -1,0 +1,36 @@
+#We shall say that an n-digit number is pandigital if it makes use of all the digits 1 to n exactly once. 
+#For example, 2143 is a 4-digit pandigital and is also prime.
+
+#What is the largest n-digit pandigital prime that exists?
+
+
+require 'prime'
+
+a=[]
+c=[]
+Prime.each(1000000000) do |x|
+  b=[]
+  b = x.to_s.split('')
+  length =  b.count
+  b = b.map(&:to_i)
+ 
+  if (length == 9) && b.include?(9) && b.include?(8) && b.include?(7) && b.include?(6) 
+  && b.include?(5) && b.include?(4) && b.include?(3) && b.include?(2) && b.include?(1)
+    c << x
+  elsif (length == 8) && b.include?(8) && b.include?(7) && b.include?(6) && b.include?(5) 
+  && b.include?(4) && b.include?(3) && b.include?(2) && b.include?(1)
+    c << x
+  elsif (length == 7) && b.include?(7) && b.include?(6) && b.include?(5) && b.include?(4) 
+  && b.include?(3) && b.include?(2) && b.include?(1)
+    c << x
+  elsif (length == 6) && b.include?(6) && b.include?(5) && b.include?(4) && b.include?(3) 
+  && b.include?(2) && b.include?(1)
+    c << x
+  elsif (length == 5) && b.include?(5) && b.include?(4) && b.include?(3) && b.include?(2) 
+  && b.include?(1)
+    c << x
+  elsif (length == 4) && b.include?(4) && b.include?(3) && b.include?(2) && b.include?(1)
+    c << x
+  end
+end
+puts c[-1]
