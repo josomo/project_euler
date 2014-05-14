@@ -1,0 +1,31 @@
+#We shall say that an n-digit number is pandigital if it makes use of all the digits 1 to n exactly once; 
+#for example, the 5-digit number, 15234, is 1 through 5 pandigital.
+
+#The product 7254 is unusual, as the identity, 39 × 186 = 7254, containing multiplicand, 
+#multiplier, and product is 1 through 9 pandigital.
+
+Find the sum of all products whose multiplicand/multiplier/product identity can be written as a 1 through 9 pandigital.
+HINT: Some products can be obtained in more than one way so be sure to only include it once in your sum.
+
+a=[]
+b = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+
+v=[]
+
+(1..10000).each do |k|
+  if k.to_s.length == k.to_s.split("").delete_if{|g| g == "0"}.uniq.count
+    v << k
+  end
+end
+
+v.each_index do |x|
+  (v[x]..v[-1]).each_index do |y|
+    (v[y]..v[-1]).each_index do |z|
+      if (v[x] * v[y] == v[z]) && b - (v[x].to_s.split("") + v[y].to_s.split("") + v[z].to_s.split(""))  == []
+        a << v[z]
+      end
+    end
+  end
+end
+
+puts a.uniq.inject(:+)
