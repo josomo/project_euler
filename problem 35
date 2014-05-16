@@ -1,0 +1,40 @@
+#The number, 197, is called a circular prime because all rotations of the digits: 197, 971, and 719, are themselves prime.
+
+#There are thirteen such primes below 100: 2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, and 97.
+
+#How many circular primes are there below one million?
+
+require 'prime'
+
+def rotate(x)
+  y = x.to_s.chars
+  z = y.shift
+  y << z
+  return (y * "").to_i
+end
+
+def zero(x)
+  if x.to_s.chars.include?("0")
+    return false
+  else
+    return true
+  end
+end
+
+b=[]
+Prime.each(1000000) {|x| b<<x}
+
+a=[]
+b.each do |n|
+  if zero(n) &&
+  Prime.prime?(rotate(n)) &&                                                  #rotated 1/6
+  Prime.prime?(rotate(rotate(n))) &&                                          #rotated 2/6
+  Prime.prime?(rotate(rotate(rotate(n)))) &&                                  #rotated 3/6
+  Prime.prime?(rotate(rotate(rotate(rotate(n))))) &&                          #rotated 4/6
+  Prime.prime?(rotate(rotate(rotate(rotate(rotate(n)))))) &&                  #rotated 5/6
+  Prime.prime?(rotate(rotate(rotate(rotate(rotate(rotate(n)))))))             #rotated 6/6 times
+    a << n
+  end
+end
+
+puts a.count
